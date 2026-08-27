@@ -21,7 +21,7 @@ pub fn off_json() -> String {
     r#"{"method":"setPilot","params":{"state":false}}"#.to_string()
 }
 
-/// Resolves human-readable color string to RGB values and power state
+
 pub fn resolve_color(color: &str) -> Option<(u8, u8, u8, bool)> {
     match color {
         "red"    => Some((255, 0,   0,   true)),
