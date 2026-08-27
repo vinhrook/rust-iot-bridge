@@ -1,7 +1,6 @@
 use std::sync::{Arc, RwLock};
 
-// ── Shared LED State ──────────────────────────────────────────────────────────
-// Single source of truth. All tasks read/write through Arc<RwLock<>>.
+
 #[derive(Debug, Clone)]
 pub struct LedState {
     pub color_name: String,
@@ -23,7 +22,7 @@ impl LedState {
     }
 }
 
-// ── App State (shared across Axum routes & background workers) ────────────────
+
 #[derive(Clone)]
 pub struct AppState {
     pub led: Arc<RwLock<LedState>>,
