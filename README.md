@@ -151,21 +151,7 @@ mosquitto_pub -h localhost -t "led/color" -m "off"
 
 - **100% Local LAN Communication:** Commands travel directly over local UDP sockets. Your lighting controls continue working even during complete internet outages.
 - **Thread Isolation:** The web server and MQTT subscriber execute concurrently without blocking each other.
-- **Memory Safety:** Written entirely in safe Rust, preventing memory leaks, buffer overflows, and null-pointer exceptions.
-
----
-
-### Why Rust Better and where 
-Metric	                   C / C++	          Python	             Rust 🦀
-Raw Speed	               (Fastest)	      (Slow)	                    (Fastest)
-Memory Usage	           (Minimal)   	    (Heavy)	                     (Minimal)
-Memory Safety	           (Dangerous)	     (Safe)	                     (Safe)
-Garbage Collector	       (None)	         (Yes, causes pauses)	       (None - zero latency)
-Package Manager	           (Complex)	      (pip)	               (cargo - Best in class)
-
-For IoT	                 (Hard to maintain safel)      (Too slow )      The Perfect Balance
-
-
+- **Memory Safety:** Written entirely in safe Rust, preventing memory leaks, buffer overflows, and null-pointer exception
 
 
 ##  License
