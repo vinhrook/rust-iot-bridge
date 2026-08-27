@@ -1,17 +1,17 @@
-# 🌉 IoT Protocol Bridge & Smart Lighting Hub (Rust)
+#  IoT Protocol Bridge & Smart Lighting Hub (Rust)
 
 > A high-performance, concurrent multi-protocol IoT Gateway written in **Rust** that bridges **Cloud IoT (MQTT)** and **Local Smart Hardware (WiZ UDP)** with an embedded real-time **Axum Web Dashboard**.
 
 ---
 
-## 🌟 What is This Project?
+##  What is This Project?
 
 In modern IoT environments, different systems speak different protocols:
 
 - **The Cloud / IT World speaks MQTT:** Web dashboards, mobile apps, and cloud servers exchange lightweight, asynchronous JSON messages.
 - **The Physical Hardware speaks UDP:** Smart devices (like WiZ LED lights) communicate over raw, local UDP network datagrams for zero-latency control.
 
-### 🎯 The Solution: `rust-iot-bridge`
+###  The Solution: `rust-iot-bridge`
 This project acts as the **universal translator and orchestrator**. 
 
 When a color command is triggered from **anywhere** (a web dashboard, a mobile phone, or an MQTT message), this Rust bridge:
@@ -22,7 +22,7 @@ When a color command is triggered from **anywhere** (a web dashboard, a mobile p
                   ┌───────────────────────────────────────────────────────────┐
                   │                 CONTROL INTERFACES                        │
                   │                                                           │
-                  │   🌐 Modern Web UI                 📡 MQTT Subscriber     │
+                  │   Modern Web UI                       MQTT Subscriber     │
                   │  (http://...:8080)                 (localhost:1883)       │
                   └─────────────┬───────────────────────────────┬─────────────┘
                                 │                               │
@@ -36,14 +36,14 @@ When a color command is triggered from **anywhere** (a web dashboard, a mobile p
                                                 │
                                                 ▼ (Local UDP Socket :38899)
                                   ┌───────────────────────────┐
-                                  │       💡 Smart LED        │
+                                  │        Smart LED        │
                                   │   (Instant Hardware Flow) │
                                   └───────────────────────────┘
 ```
 
 ---
 
-## 📁 Project Architecture & Code Structure
+##  Project Architecture & Code Structure
 
 ```
 rust-iot-bridge/src/
@@ -105,21 +105,21 @@ cargo run
 When started, you will see:
 ```text
 ====================================================
-🌉  IoT Bridge & Smart Lighting Hub v0.1.0
+  IoT Bridge & Smart Lighting Hub v0.1.0
 ====================================================
-🌐 Dashboard  : http://localhost:8080
-📡 MQTT Broker: localhost:1883 [topic: led/color]
-💡 Target LED  : 10.226.209.74 (WiZ UDP 38899)
+ Dashboard  : http://localhost:8080
+ MQTT Broker: localhost:1883 [topic: led/color]
+ Target LED  : 10.226.209.74 (WiZ UDP 38899)
 ====================================================
 ```
 
 ---
 
-## 🎮 How to Use & Test
+##  How to Use & Test
 
 ### 1. Web Dashboard (Browser)
 Open your browser to:
-👉 **`http://localhost:8080`**
+ **`http://localhost:8080`**
 
 Click any color button (🔴 Red, 🟢 Green, 🔵 Blue, 🩷 Pink, 🟡 Yellow, 🩵 Cyan, ⚪ White, 🟠 Orange, 🟣 Purple, or ⚫ Off) to update the light and dashboard state immediately.
 
@@ -137,7 +137,7 @@ mosquitto_pub -h localhost -t "led/color" -m "off"
 
 ---
 
-## 📡 REST API Reference
+##  REST API Reference
 
 | Method | Endpoint | Description | Sample Response |
 | :--- | :--- | :--- | :--- |
@@ -147,7 +147,7 @@ mosquitto_pub -h localhost -t "led/color" -m "off"
 
 ---
 
-## 🔒 Security & Offline Resilience
+##  Security & Offline Resilience
 
 - **100% Local LAN Communication:** Commands travel directly over local UDP sockets. Your lighting controls continue working even during complete internet outages.
 - **Thread Isolation:** The web server and MQTT subscriber execute concurrently without blocking each other.
@@ -155,7 +155,7 @@ mosquitto_pub -h localhost -t "led/color" -m "off"
 
 ---
 
-## 📄 License
+##  License
 
 Distributed under the **MIT License** / **Apache-2.0 License**.
 
