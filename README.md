@@ -155,30 +155,6 @@ mosquitto_pub -h localhost -t "led/color" -m "off"
 
 ---
 
-##  License
-
-Distributed under the **MIT License** / **Apache-2.0 License**.
-
-
-
-### How it's Work 
-                              ┌─────────────────────────────────────────────┐
-                              │         rust-iot-bridge                     │
-                              │                                             │
-┌──────────────┐   MQTT       │  ┌──────────┐   ┌────────────┐             │     ┌──────────────┐
-│ mosquitto_pub│──────────────┼─►│ mqtt.rs  │──►│            │  UDP        │────►│  WiZ Smart   │
-│ (Terminal)   │              │  └──────────┘   │  Shared    │  Datagram   │     │  LED Bulb    │
-└──────────────┘              │                 │  State     │             │     │  (38899)     │
-                              │  ┌──────────┐   │(Arc<RwLock>│             │     └──────────────┘
-┌──────────────┐   HTTP POST  │  │ web.rs   │──►│  LedState) │             │
-│ Web Browser  │──────────────┼─►│ (Axum)   │   │            │             │
-│ Dashboard    │◄─────────────┼──│ REST API │◄──│            │             │
-└──────────────┘   HTML+JSON  │  └──────────┘   └────────────┘             │
-                              │                                             │
-                              │  state.rs  •  wiz.rs  •  main.rs           │
-                              └─────────────────────────────────────────────┘
-
-
 ### Why Rust Better and where 
 Metric	                   C / C++	          Python	             Rust 🦀
 Raw Speed	               (Fastest)	      (Slow)	                    (Fastest)
@@ -188,3 +164,12 @@ Garbage Collector	       (None)	         (Yes, causes pauses)	       (None - zer
 Package Manager	           (Complex)	      (pip)	               (cargo - Best in class)
 
 For IoT	                 (Hard to maintain safel)      (Too slow )      The Perfect Balance
+
+
+
+
+##  License
+
+Distributed under the **MIT License** / **Apache-2.0 License**.
+
+
